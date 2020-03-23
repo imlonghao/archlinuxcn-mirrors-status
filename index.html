@@ -52,8 +52,14 @@
                         render: function (data, type, row, meta) {
                             if (data >= 1145141919) {
                                 return ''
+                            } else if (data === 0) {
+                                return '已是最新'
                             } else {
-                                return `${parseInt(data / 86400)} 天 ${parseInt(data / 3600 % 24)} 小时 ${parseInt(data / 60 % 60)} 分 ${parseInt(data % 60)} 秒`
+                                tian = parseInt(data / 86400) ? `${parseInt(data / 86400)} 天 ` : ''
+                                xiaoshi = parseInt(data / 3600 % 24) ? `${parseInt(data / 3600 % 24)} 小时 ` : ''
+                                fen = parseInt(data / 60 % 60) ? `${parseInt(data / 60 % 60)} 分 ` : ''
+                                miao = parseInt(data % 60) ? `${parseInt(data % 60)} 秒` : ''
+                                return `${tian}${xiaoshi}${fen}${miao}`
                             }
                         }
                     }
