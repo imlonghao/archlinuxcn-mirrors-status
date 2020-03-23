@@ -22,21 +22,19 @@
                     url: "status.json",
                     dataSrc: ""
                 },
-                "order": [[2, "desc"]],
+                "order": [[1, "desc"]],
                 "paging": false,
                 "columnDefs": [
                     {
                         targets: 0,
                         title: "镜像名",
-                        data: "name"
+                        data: "name",
+                        render: function (data, type, row, meta) {
+                            return `<a href=${row.url} target=_blank rel=noopener>${data}</a>`
+                        }
                     },
                     {
                         targets: 1,
-                        title: "镜像地址",
-                        data: "url"
-                    },
-                    {
-                        targets: 2,
                         title: "最后一次同步时间",
                         data: "lastupdate",
                         render: function (data, type, row, meta) {
@@ -48,7 +46,7 @@
                         }
                     },
                     {
-                        targets: 3,
+                        targets: 2,
                         title: "延迟",
                         data: "diff",
                         render: function (data, type, row, meta) {
