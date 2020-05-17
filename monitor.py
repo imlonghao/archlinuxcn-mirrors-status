@@ -18,7 +18,8 @@ mirrors = [
     ['重庆大学', 'https://mirrors.cqu.edu.cn/archlinuxcn/'],
     ['SJTUG 软件源镜像服务', 'https://mirrors.sjtug.sjtu.edu.cn/archlinux-cn/'],
     ['莞工 GNU/Linux 协会 开源软件镜像站', 'https://mirrors.dgut.edu.cn/archlinuxcn/'],
-    ['腾讯云', 'https://mirrors.cloud.tencent.com/archlinuxcn/']
+    ['腾讯云', 'https://mirrors.cloud.tencent.com/archlinuxcn/'],
+    ['北京外国语大学', 'https://mirrors.bfsu.edu.cn/archlinuxcn/']
 ]
 
 result = []
