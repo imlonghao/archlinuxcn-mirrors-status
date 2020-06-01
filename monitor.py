@@ -2,6 +2,15 @@
 
 import json
 import requests
+from requests.adapters import HTTPAdapter
+from requests.packages.urllib3.util.retry import Retry
+
+adapter = HTTPAdapter(max_retries=Retry(
+    total=3
+))
+session = requests.Session()
+session.mount("https://", adapter)
+session.mount("http://", adapter)
 
 mirrors = [
     ['浙江大学', 'https://mirrors.zju.edu.cn/archlinuxcn/'],
@@ -27,10 +36,7 @@ result = []
 for mirror in mirrors:
     try:
         lastupdate = int(
-            requests.get(
-                mirror[1] +
-                'lastupdate',
-                timeout=5).text)
+            session.get(mirror[1] + 'lastupdate', timeout=5).text)
     except BaseException:
         lastupdate = 0
     result.append({
